@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sampleapp
+    restart: unless-stopped
+    ports:
+      - "7000:80"          # host:container
+      - "7001:443"       # enable only if you configure HTTPS in Kestrel
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:80
+      ConnectionStrings__DBConnectionString: "Server=papitolindo;Database=otherdb;User Id=myusr;Password=mypwd;TrustServerCertificate=true;"
+      MyFilesDir: "anotherOneBitesTheDust/"
+      
