@@ -11,7 +11,7 @@ jobs:
   build-production:
     runs-on: ubuntu-latest
     name: Build Production Image
-    if: github.ref == 'refs/heads/production'  # Only for production branch
+    if: github.ref == 'refs/heads/main'  # Only for production branch
     
     steps:
     - uses: actions/checkout@v4
